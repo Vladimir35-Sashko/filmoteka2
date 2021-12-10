@@ -109,6 +109,7 @@ export default {
   props:{
       filmData:{
         type: Object,
+        // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
         default(){
           return {}
         }
@@ -118,12 +119,14 @@ export default {
       default: 'add to watched'
     },
   },
-    data() {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    data(){
         return {
           isInfoPopupVisible: false,
         }
     },
   methods:{
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     showPopupInfo(){
       this.isInfoPopupVisible = true;
 
@@ -140,7 +143,7 @@ export default {
 
   },
   computed:{
-      posterAlt() {
+      posterAlt(){
         return `poster for ${this.filmData.title}`
       },
       source(){
@@ -149,6 +152,7 @@ export default {
 
   },
   mounted() {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     let vm = this;
     document.addEventListener('click', function (item){
       if (item.target === vm.$refs['popup_wrapper']){

@@ -1,4 +1,3 @@
-// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'axios' or its corresponding ty... Remove this comment to see the full error message
 import axios from "axios";
 import genres from "../genresValue";
 // import { fetchTrendingMovies } from "../services/apiService";

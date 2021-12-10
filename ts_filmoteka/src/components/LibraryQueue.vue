@@ -144,6 +144,7 @@ export default {
     }
   },
   mounted() {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     let vm = this;
     document.addEventListener("click", function(item) {
       if (item.target === vm.$refs["popup_wrapper"]) {

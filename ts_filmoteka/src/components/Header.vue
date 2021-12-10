@@ -73,7 +73,8 @@ export default {
     ]),
     search(value){
       this.GET_SEARCH_VALUE_TO_VUEX(value);
-      this.$router.push('/').catch(() => {})
+      this.$router.push('/').catch((error) => {
+        console.log(error)})
     }
   }
   
