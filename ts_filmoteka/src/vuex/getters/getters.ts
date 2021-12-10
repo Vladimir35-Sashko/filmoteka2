@@ -1,14 +1,14 @@
 export default {
-    FILMS(state) {
+    FILMS(state: any) {
         return state.films;
     },
-    SEARCH_VALUE(state) {
+    SEARCH_VALUE(state: any) {
         return state.searchValue;
     },
-    LIBRARY_WATCHED(state) {
+    LIBRARY_WATCHED(state: any) {
         return state.libraryWatched;
     },
-    LIBRARY_QUEUE(state) {
+    LIBRARY_QUEUE(state: any) {
         return state.libraryQueue;
     }
 }

@@ -6,7 +6,7 @@ import getters from "./getters/getters";
 
 Vue.use(Vuex);
 
-let store = new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     films: [],
     library: [],

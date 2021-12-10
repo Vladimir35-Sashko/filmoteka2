@@ -1,10 +1,11 @@
 import genresIds from "./genresIds";
 
-export default function genres(data) {
-  data.map(item => {
-    let newGenres = [];
-    item.genre_ids.map(id => {
+export default function genres(data: any) {
+  data.map((item: any) => {
+    const newGenres: any = [];
+    item.genre_ids.map((id: any) => {
       const found = genresIds.find(item => item.id === id);
+      // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
       newGenres.push(found.name);
     });
     if (newGenres.length >= 3) {

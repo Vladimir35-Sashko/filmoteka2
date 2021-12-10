@@ -1,3 +1,4 @@
+// @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'axios' or its corresponding ty... Remove this comment to see the full error message
 import axios from "axios";
 
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -6,6 +7,8 @@ const API_KEY = "699fe261bad37d16f5bc7fa8547e0738";
 axios.defaults.baseURL = BASE_URL;
 
 export default class ApiService {
+  pageNumber: any;
+  searchQuery: any;
   constructor() {
     this.searchQuery = "";
     this.pageNumber = 1;
@@ -23,7 +26,7 @@ export default class ApiService {
     return await response.data;
   }
 
-  async fetchMoviesSearchQuery(searchQuery, page) {
+  async fetchMoviesSearchQuery(searchQuery: any, page: any) {
     const response = await axios.get(
       `/search/movie?api_key=${API_KEY}&page=${page}&language=en&query='${searchQuery}'`
     );
@@ -52,7 +55,7 @@ export default class ApiService {
     return this.pageNumber;
   }
 
-  set query(newQuery) {
+  set query(newQuery: any) {
     this.searchQuery = newQuery;
   }
 }
