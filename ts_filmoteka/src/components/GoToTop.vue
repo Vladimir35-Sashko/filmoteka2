@@ -1,11 +1,11 @@
 <template>
   <div class="goup__btn-wrapper">
     <button
-        class="goup__btn"
-        style="display: none"
-        type="button"
-        v-show="scY > 300"
-        @click="toTop"
+      class="goup__btn"
+      style="display: none"
+      type="button"
+      v-show="scY > 300"
+      @click="toTop"
     >
       <svg class="goup" width="20" height="20">
         <use href="../images/footer/sprite.svg#icon-arrow-up2"></use>
@@ -17,14 +17,14 @@
 <script>
 export default {
   name: "GoToTop",
-  data(){
+  data() {
     return {
       scTimer: 0,
       scY: 0,
-    }
+    };
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleScroll: function () {
@@ -38,14 +38,11 @@ export default {
     toTop: function () {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     },
   },
 };
-
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

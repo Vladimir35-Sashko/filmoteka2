@@ -4,7 +4,7 @@ export default function genres(data: any) {
   data.map((item: any) => {
     const newGenres: any = [];
     item.genre_ids.map((id: any) => {
-      const found = genresIds.find(item => item.id === id);
+      const found = genresIds.find((item) => item.id === id);
       // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
       newGenres.push(found.name);
     });

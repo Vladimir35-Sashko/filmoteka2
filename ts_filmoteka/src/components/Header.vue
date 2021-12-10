@@ -1,6 +1,5 @@
 <template>
-  
-  <div class=" Header  page-header header__container home-container">
+  <div class="Header page-header header__container home-container">
     <div class="header__nav-wrapper">
       <a class="logo__link" href=""
         ><img
@@ -13,14 +12,18 @@
 
       <ul class="header__nav list">
         <li class="header__nav-item">
-
-          <a class="header__nav-link header__nav-link--active"  href="">HOME</a>
-
+          <a class="header__nav-link header__nav-link--active" href="">HOME</a>
         </li>
 
         <li class="header__nav-item">
           <router-link to="Library">
-          <a class="header__nav-link" data-index="liba" data-name="Watched" href="">MY LIBRARY</a>
+            <a
+              class="header__nav-link"
+              data-index="liba"
+              data-name="Watched"
+              href=""
+              >MY LIBRARY</a
+            >
           </router-link>
         </li>
       </ul>
@@ -34,7 +37,6 @@
         autocomplete="off"
         v-model="searchValue"
         @keyup="search(searchValue)"
-
       />
       <p class="header__input-icon"></p>
     </div>
@@ -46,42 +48,36 @@
       >Это все, что найдено по данному запросу</b
     >
   </div>
-      
 </template>
 
 <script>
-
-import {mapGetters,mapActions} from "vuex";
+import { mapGetters, mapActions } from "vuex";
 // import axios from "axios";
 
 export default {
-  name: 'Header',
-  props:{},
+  name: "Header",
+  props: {},
   data() {
     return {
-      searchValue:''
-    }
+      searchValue: "",
+    };
   },
   computed: {
-    ...mapGetters([
-        'SEARCH_VALUE'
-    ])
+    ...mapGetters(["SEARCH_VALUE"]),
   },
-    methods:{
-    ...mapActions([
-        'GET_SEARCH_VALUE_TO_VUEX'
-    ]),
-    search(value){
+  methods: {
+    ...mapActions(["GET_SEARCH_VALUE_TO_VUEX"]),
+    search(value) {
       this.GET_SEARCH_VALUE_TO_VUEX(value);
-      this.$router.push('/').catch((error) => {
-        console.log(error)})
-    }
-  }
-  
-}
+      this.$router.push("/").catch((error) => {
+        console.log(error);
+      });
+    },
+  },
+};
 </script>
 <style scoped>
-.Header{
+.Header {
   background-color: #000;
 }
 </style>

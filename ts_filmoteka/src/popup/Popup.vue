@@ -1,25 +1,18 @@
 <template>
-<div class="popup">
-  <slot></slot>
-</div>
+  <div class="popup">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
   name: "Popup",
-  props:{
-
+  props: {},
+  data() {
+    return {};
   },
-  data(){
-    return {}
-  },
-  methods:{
-    }
-
-}
-
+  methods: {},
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,6 +1,5 @@
 import axios from "axios";
 import genres from "../genresValue";
-// import { fetchTrendingMovies } from "../services/apiService";
 
 export default {
   GET_FILMS_FROM_API({
@@ -9,7 +8,7 @@ export default {
     return axios(
       "https://api.themoviedb.org/3/trending/movie/week?api_key=699fe261bad37d16f5bc7fa8547e0738",
       {
-        method: "GET"
+        method: "GET",
       }
     )
       .then((films: any) => {
@@ -47,5 +46,5 @@ export default {
     commit
   }: any, index: any) {
     commit("REMOVE_FROM_QUEUE", index);
-  }
+  },
 };

@@ -19,7 +19,9 @@
                 <span class="content__rating">
                   {{ library_queue_data.vote_average }}</span
                 >
-                <span class="content__vote">{{library_queue_data.vote_count}}</span>
+                <span class="content__vote">{{
+                  library_queue_data.vote_count
+                }}</span>
               </p>
             </li>
             <li class="lightbox__list__item">
@@ -79,9 +81,15 @@
           <div class="card__description">
             <p class="content__title">{{ library_queue_data.title }}</p>
             <p class="content__info">
-              <span class="content__genres">{{library_queue_data.genre_ids}}</span>
-              <span class="content__year">{{library_queue_data.release_date}}</span>
-              <span class="content__rating">{{library_queue_data.vote_average}}</span>
+              <span class="content__genres">{{
+                library_queue_data.genre_ids
+              }}</span>
+              <span class="content__year">{{
+                library_queue_data.release_date
+              }}</span>
+              <span class="content__rating">{{
+                library_queue_data.vote_average
+              }}</span>
             </p>
           </div>
         </a>
@@ -96,7 +104,7 @@ import Popup from "../popup/Popup";
 export default {
   name: "LibraryQueue",
   components: {
-    Popup
+    Popup,
   },
 
   props: {
@@ -104,20 +112,20 @@ export default {
       type: Object,
       default() {
         return {};
-      }
+      },
     },
     buttonTitle: {
       type: String,
-      default: "Add to watched"
+      default: "Add to watched",
     },
     buttonTitleQueue: {
       type: String,
-      default: "Del from Queue"
-    }
+      default: "Del from Queue",
+    },
   },
   data() {
     return {
-      isInfoPopupVisible: false
+      isInfoPopupVisible: false,
     };
   },
   methods: {
@@ -132,7 +140,7 @@ export default {
     },
     addToWatched() {
       this.$emit("addToWatched", this.library_queue_data);
-    }
+    },
   },
 
   computed: {
@@ -141,17 +149,17 @@ export default {
     },
     source() {
       return `https://image.tmdb.org/t/p/w300${this.library_queue_data.poster_path}`;
-    }
+    },
   },
   mounted() {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     let vm = this;
-    document.addEventListener("click", function(item) {
+    document.addEventListener("click", function (item) {
       if (item.target === vm.$refs["popup_wrapper"]) {
         vm.closeInfoPopup();
       }
     });
-  }
+  },
 };
 </script>
 

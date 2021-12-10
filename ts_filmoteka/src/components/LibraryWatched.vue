@@ -19,7 +19,9 @@
                 <span class="content__rating">
                   {{ library_watched_data.vote_average }}</span
                 >
-                <span class="content__vote">{{library_watched_data.vote_count}}</span>
+                <span class="content__vote">{{
+                  library_watched_data.vote_count
+                }}</span>
               </p>
             </li>
             <li class="lightbox__list__item">
@@ -67,29 +69,34 @@
       </div>
     </Popup>
     <template v-if="LIBRARY_WATCHED.length">
-    <ul class="content__cards">
-      <li
-        class="content__card content__card__show__info"
-        @click="showPopupInfo"
-      >
-        <a href="#" :data-id="library_watched_data.id" class="content__link">
-          <div class="poster__wraper">
-            <img :src="source" :alt="posterAlt" class="content__poster" />
-          </div>
-          <div class="card__description">
-            <p class="content__title">{{ library_watched_data.title }}</p>
-            <p class="content__info">
-              <span class="content__genres">{{library_watched_data.genre_ids}}</span>
-              <span class="content__year">{{library_watched_data.release_date}}</span>
-              <span class="content__rating">{{library_watched_data.vote_average}}</span>
-            </p>
-          </div>
-        </a>
-      </li>
-    </ul>
+      <ul class="content__cards">
+        <li
+          class="content__card content__card__show__info"
+          @click="showPopupInfo"
+        >
+          <a href="#" :data-id="library_watched_data.id" class="content__link">
+            <div class="poster__wraper">
+              <img :src="source" :alt="posterAlt" class="content__poster" />
+            </div>
+            <div class="card__description">
+              <p class="content__title">{{ library_watched_data.title }}</p>
+              <p class="content__info">
+                <span class="content__genres">{{
+                  library_watched_data.genre_ids
+                }}</span>
+                <span class="content__year">{{
+                  library_watched_data.release_date
+                }}</span>
+                <span class="content__rating">{{
+                  library_watched_data.vote_average
+                }}</span>
+              </p>
+            </div>
+          </a>
+        </li>
+      </ul>
     </template>
-      <h2 v-else class="empty-list">Watched list is empty...</h2>
-
+    <h2 v-else class="empty-list">Watched list is empty...</h2>
   </div>
 </template>
 
@@ -99,23 +106,23 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "LibraryWatched",
   components: {
-    Popup
+    Popup,
   },
   props: {
     library_watched_data: {
       type: Object,
       default() {
         return {};
-      }
+      },
     },
     buttonTitle: {
       type: String,
-      default: "Del from watched"
-    }
+      default: "Del from watched",
+    },
   },
   data() {
     return {
-      isInfoPopupVisible: false
+      isInfoPopupVisible: false,
     };
   },
 
@@ -124,7 +131,7 @@ export default {
       "DELETE_FROM_WATCHED",
       "DELETE_FROM_QUEUE",
       "ADD_TO_LIBRARY_WATCHED",
-      "ADD_TO_LIBRARY_QUEUE"
+      "ADD_TO_LIBRARY_QUEUE",
     ]),
     showPopupInfo() {
       this.isInfoPopupVisible = true;
@@ -137,7 +144,7 @@ export default {
     },
     deleteFromWatched() {
       this.$emit("deleteFromWatched");
-    }
+    },
   },
   computed: {
     ...mapGetters(["LIBRARY_WATCHED", "LIBRARY_QUEUE"]),
@@ -146,17 +153,17 @@ export default {
     },
     source() {
       return `https://image.tmdb.org/t/p/w300${this.library_watched_data.poster_path}`;
-    }
+    },
   },
   mounted() {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     let vm = this;
-    document.addEventListener("click", function(item) {
+    document.addEventListener("click", function (item) {
       if (item.target === vm.$refs["popup_wrapper"]) {
         vm.closeInfoPopup();
       }
     });
-  }
+  },
 };
 </script>
 
